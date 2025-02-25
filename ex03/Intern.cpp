@@ -48,3 +48,8 @@ AForm* Intern::makeForm(std::string name, std::string target) {
     }
     throw FormNotFoundException();
 }
+
+
+const char* Intern::FormNotFoundException::what() const throw() {
+    return "Form Not Found!";
+}

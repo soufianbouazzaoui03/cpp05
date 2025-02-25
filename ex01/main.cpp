@@ -1,32 +1,23 @@
 #include "Bureaucrat.hpp"
-#include <iostream>
+#include "Form.hpp"
+
 
 int main() {
     try {
-        // Test valid bureaucrat
-        Bureaucrat b1("John", 1);
-        std::cout << b1 << std::endl;
+        Bureaucrat boss("Boss", 1);
+        Bureaucrat intern("Intern", 150);
 
-        // Test increment/decrement
-        Bureaucrat b2("Jane", 2);
-        std::cout << b2 << std::endl;
-        b2.increment();
-        std::cout << "After increment: " << b2 << std::endl;
-        b2.decrement();
-        std::cout << "After decrement: " << b2 << std::endl;
+        Form contract("Important Contract", 50, 100);
+        std::cout << contract << std::endl;
 
-        // Test exceptions
-        Bureaucrat b3("Invalid", 0);  // Should throw GradeTooHighException
-    }
-    catch (const std::exception& e) {
-        std::cout << "Exception: " << e.what() << std::endl;
-    }
+        std::cout << "\n--- Signing Attempt by Boss ---" << std::endl;
+        boss.signForm(contract);
+        std::cout << contract << std::endl;
 
-    try {
-        Bureaucrat b4("Invalid", 151);  // Should throw GradeTooLowException
-    }
-    catch (const std::exception& e) {
-        std::cout << "Exception: " << e.what() << std::endl;
+        std::cout << "\n--- Signing Attempt by Intern (should fail) ---" << std::endl;
+        intern.signForm(contract);
+    } catch (const std::exception& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
     }
 
     return 0;

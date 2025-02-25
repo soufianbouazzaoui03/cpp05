@@ -3,11 +3,9 @@
 
 int main() {
     try {
-        // Test valid bureaucrat
         Bureaucrat b1("John", 1);
         std::cout << b1 << std::endl;
 
-        // Test increment/decrement
         Bureaucrat b2("Jane", 2);
         std::cout << b2 << std::endl;
         b2.increment();
@@ -15,7 +13,6 @@ int main() {
         b2.decrement();
         std::cout << "After decrement: " << b2 << std::endl;
 
-        // Test exceptions
         Bureaucrat b3("Invalid", 0);  // Should throw GradeTooHighException
     }
     catch (const std::exception& e) {

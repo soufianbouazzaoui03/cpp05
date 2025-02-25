@@ -23,7 +23,7 @@ int main() {
         boss.executeForm(pardon);
 
         std::cout << "\n--- Intern trying to execute ---" << std::endl;
-        intern.executeForm(shrubbery);  // Should fail
+        intern.executeForm(shrubbery);
     } catch (const std::exception& e) {
         std::cerr << "Exception caught: " << e.what() << std::endl;
     }
